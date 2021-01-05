@@ -154,8 +154,10 @@ namespace NzbDrone.Core.Download.Clients.RTorrent
                     item.Status = DownloadItemStatus.Paused;
                 }
 
+                item.CanMoveFiles = Settings.MoveFiles;
+
                 // No stop ratio data is present, so do not delete
-                item.CanMoveFiles = item.CanBeRemoved = false;
+                item.CanBeRemoved = false;
 
                 items.Add(item);
             }

@@ -67,6 +67,9 @@ namespace NzbDrone.Core.Download.Clients.RTorrent
         [FieldDefinition(11, Label = "Add Stopped", Type = FieldType.Checkbox, HelpText = "Enabling will prevent magnets from downloading before downloading")]
         public bool AddStopped { get; set; }
 
+        [FieldDefinition(12, Label = "Move files", Type = FieldType.Checkbox, Advanced = true, HelpText = "Moves the files when imported instead of copying/hardlinking (CAUTION: Do not use if you want to seed the files.)")]
+        public bool MoveFiles { get; set; }
+
         public NzbDroneValidationResult Validate()
         {
             return new NzbDroneValidationResult(Validator.Validate(this));
